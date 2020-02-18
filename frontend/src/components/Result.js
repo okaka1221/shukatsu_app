@@ -12,10 +12,8 @@ class Result extends React.Component {
       <div>
         { 
           isPending ? 
-          <Grid container spacing={3} >
-            <Grid item xs={12} justify='center' style={{display: 'flex'}}>              
-              <CircularProgress size={100}/>
-            </Grid>
+          <Grid container spacing={3} justify='center' style={{display: 'flex'}}>
+            <CircularProgress size={100}/>
           </Grid>
           : 
           <Grid container spacing={3} >

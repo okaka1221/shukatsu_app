@@ -15,7 +15,7 @@ class InputField extends React.Component {
     this.state = {
       keywords: "",
       text: "",
-      label: null,
+      label: "",
       errorLabel: false,
       errorText: false,
     }
@@ -34,7 +34,7 @@ class InputField extends React.Component {
     e.preventDefault();
     const { keywords, text, label } = this.state;
 
-    if (label === null) {
+    if (label === "") {
       this.setState({ errorLabel: true })
     } else {
       this.setState({ errorLabel: false })
@@ -46,7 +46,7 @@ class InputField extends React.Component {
       this.setState({ errorText: false })
     }
     
-    if (text !== "" && label !== null) {
+    if (text !== "" && label !== "") {
       this.props.getTextAnalysis(keywords, text, label);
     }
   }
@@ -77,7 +77,7 @@ class InputField extends React.Component {
               onChange={this.handleChange}
               displayEmpty
              >
-              <MenuItem value={null} disabled>
+              <MenuItem value={""} disabled>
                 選択して下さい
               </MenuItem>
               <MenuItem value={true}>はい</MenuItem>

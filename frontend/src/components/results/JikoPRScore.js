@@ -7,7 +7,7 @@ function JikoPRScore({jikoPRScore}) {
       {
         jikoPRScore !== null ?
           <div>
-            <Typography variant='h5' >あなたの自己PRの点数は</Typography>
+            <Typography variant='h5' >あなたの自己PRの点数は100点中</Typography>
             <Typography variant='h3' style={{ marginTop: 20 }}>{Math.round(jikoPRScore)} 点</Typography>
           </div>
         : null

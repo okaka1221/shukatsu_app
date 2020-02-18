@@ -13,9 +13,9 @@ class InputField extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      keywords: "最後　努力　パート",
-      text: "は",
-      label: true,
+      keywords: "",
+      text: "",
+      label: "",
       labelError: false,
       textError: false,
     }

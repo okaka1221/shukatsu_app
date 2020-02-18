@@ -13,8 +13,8 @@ class WordCloudGenerator():
     Generate wordcloud
     """
     def __init__(self):
-        self.stop_word_path = staticfiles_storage.path('text_analysis/stop_words.txt')
-        self.font_path = staticfiles_storage.path('text_analysis/VL-Gothic-Regular.ttf')
+        self.stop_word_path = staticfiles_storage.path('entrysheet/stop_words.txt')
+        self.font_path = staticfiles_storage.path('entrysheet/VL-Gothic-Regular.ttf')
 
     def generate(self, words):
         words_joined = ' '.join(words)

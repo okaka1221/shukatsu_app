@@ -1,3 +1,5 @@
 .DS_Store
 db.sqlite3
-/static/*
+/static/entrysheet/wikipedia_entity_model.syn0.npy
+/static/entrysheet/wikipedia_entity_model
+/static/entrysheet/bert/*

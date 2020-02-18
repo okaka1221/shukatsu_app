@@ -28,15 +28,15 @@ class Classifier():
     def __init__(self):
         self.maxlen = 512
         self.bert_dim = 768
-        self.bert_config_path = staticfiles_storage.path('text_analysis/bert/bert_config.json')
-        self.bert_checkpoint_path = staticfiles_storage.path('text_analysis/bert/model.ckpt-1400000')
+        self.bert_config_path = staticfiles_storage.path('entrysheet/bert/bert_config.json')
+        self.bert_checkpoint_path = staticfiles_storage.path('entrysheet/bert/model.ckpt-1400000')
         self.bert = load_trained_model_from_checkpoint(self.bert_config_path, self.bert_checkpoint_path, seq_len=self.maxlen, training=True, trainable=False)
         
-        self.sp_path = staticfiles_storage.path('text_analysis/bert/wiki-ja.model')
+        self.sp_path = staticfiles_storage.path('entrysheet/bert/wiki-ja.model')
         self.sp = spm.SentencePieceProcessor()
         self.sp.Load(self.sp_path)
         
-        self.model_path = staticfiles_storage.path('text_analysis/bert/bert_check_point.model')
+        self.model_path = staticfiles_storage.path('entrysheet/bert/bert_check_point.model')
         self.model = load_model(self.model_path, custom_objects=get_custom_objects())
 
     def predict(self, text):

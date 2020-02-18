@@ -1,16 +1,24 @@
 # shukatsu_app
 
-## Download necessary files
+## Download Pre-trained Models
 
 First, download pre-trained model for Japanese BERT.
 
 To save weights file of BERT, make directory
 
 ```
-$ mkdir -p static bert
+$ mkdir -p static/entrysheet/bert
 ```
 
-Then, download the following files
+Then, download the pre-trained model from [Pre-trained Japanese BERT Model](https://yoheikikuta.github.io/bert-japanese/). 
+<br>
+After downloading the files, save them to `./static/entrysheet/bert`.
+
+Also, download Japanese wikipedia corpus to utilize pre-trained word vector from [Japanese Wikipedia Entity Model]().
+<br>
+Then save them to `./static/entrysheet`.
+
+Now ready to run server.
 
 ## Setup
 

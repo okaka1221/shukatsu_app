@@ -23,11 +23,12 @@ class WordCloudGenerator():
 
         wordcloud = WordCloud(
             background_color="white", 
-            relative_scaling=1, 
+            relative_scaling=1,
             max_words=100, 
             font_path=self.font_path, 
-            width=600, height=600, 
-            stopwords=set(stop_words)
+            width=600, height=600,
+            stopwords=stop_words,
+            regexp="[\w]+"
         ).generate(words_joined)
 
         return wordcloud

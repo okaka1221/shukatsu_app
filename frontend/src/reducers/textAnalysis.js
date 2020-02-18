@@ -14,6 +14,7 @@ export default function textAnalysis(state=initialState, action) {
       return {
         ...initialState,
         isPending: true,
+        error: null,
       }
 
     case ActionTypes.GET_TEXT_ANALYSIS_SUCCESS:
@@ -23,6 +24,7 @@ export default function textAnalysis(state=initialState, action) {
         encodedWordcloud: action.encodedWordcloud,
         keywordSimScore: action.keywordSimScore,
         jikoPRScore: action.jikoPRScore,
+        error: null,
       }
 
     case ActionTypes.GET_TEXT_ANALYSIS_FAILURE:

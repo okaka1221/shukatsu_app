@@ -6,7 +6,7 @@ import { Grid, CircularProgress } from "@material-ui/core";
 
 class Result extends React.Component {
   render() {
-    const {isPending, encodedWordcloud, keywordSimScore, jikoPRScore } = this.props;
+    const { isPending, encodedWordcloud, keywordSimScore, jikoPRScore } = this.props;
     
     return (
       <div>

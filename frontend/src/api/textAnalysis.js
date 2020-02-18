@@ -20,7 +20,7 @@ export function getTextAnalysis(keywords, text, label) {
     
     fetch(URL.TEXT_ANALYSIS, requestOptions)
       .then (res => {
-        if (!res.ok) throw Error(res.statusText)
+        if (!res.ok) throw res
         return res.json()
       })
       .then(data => {
@@ -28,6 +28,7 @@ export function getTextAnalysis(keywords, text, label) {
       })
       .catch(error => {
         dispatch(TEXT_ANALYSIS_ACTIONS.getTextAnalysisFailure(error))
+        Error(error.statusText)
       })
   }
 }

@@ -18,7 +18,6 @@ export function getTextAnalysisSuccess(data) {
 export function getTextAnalysisFailure(error) {
   return {
     type: ActionTypes.GET_TEXT_ANALYSIS_FAILURE,
-    message: error.message,
-    error,
+    error: error.status,
   }
 }

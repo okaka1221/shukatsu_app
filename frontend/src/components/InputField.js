@@ -13,11 +13,11 @@ class InputField extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      keywords: "",
-      text: "",
-      label: "",
-      errorLabel: false,
-      errorText: false,
+      keywords: "最後　努力　パート",
+      text: "は",
+      label: true,
+      labelError: false,
+      textError: false,
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -35,15 +35,15 @@ class InputField extends React.Component {
     const { keywords, text, label } = this.state;
 
     if (label === "") {
-      this.setState({ errorLabel: true })
+      this.setState({ labelError: true })
     } else {
-      this.setState({ errorLabel: false })
+      this.setState({ labelError: false })
     }
 
     if (text === "") {
-      this.setState({ errorText: true })
+      this.setState({ textError: true })
     } else {
-      this.setState({ errorText: false })
+      this.setState({ textError: false })
     }
     
     if (text !== "" && label !== "") {
@@ -52,6 +52,19 @@ class InputField extends React.Component {
   }
 
   render() {
+    const { error } = this.props;
+    let { textError } = this.state;
+    let textErrorDetail;
+
+
+    
+    if (textError) {
+      textErrorDetail = "自己PRを入力してください"
+    } else if (error === 400) {
+      textError = true;
+      textErrorDetail = "自己PRを適切に入力してください"
+    }
+
     return (
       <div>
         <form name="form" onSubmit={this.handleSubmit}>
@@ -69,7 +82,7 @@ class InputField extends React.Component {
           <FormControl 
             variant="outlined" 
             style={{minWidth: 300, marginTop: 15}}
-            error={this.state.errorLabel}
+            error={this.state.labelError}
           >
             <Select
               name="label"
@@ -84,7 +97,7 @@ class InputField extends React.Component {
               <MenuItem value={false}>いいえ</MenuItem>
               <MenuItem value={"unk"}>未使用</MenuItem>
             </Select>
-            <FormHelperText>{this.state.errorLabel ? "選択して下さい" : ""}</FormHelperText>
+            <FormHelperText>{this.state.labelError ? "選択して下さい" : ""}</FormHelperText>
           </FormControl>
           <Typography variant='h5' style={{ marginTop: 30 }}>自己PR</Typography>
           <TextField
@@ -96,8 +109,8 @@ class InputField extends React.Component {
             variant="outlined"
             value={this.state.text}
             onChange={this.handleChange}
-            error={this.state.errorText}
-            helperText={this.state.errorText ? "自己PRを入力して下さい" : ""}
+            error={textError}
+            helperText={textError ? textErrorDetail : ""}
           />
           <Button
             margin="normal"

@@ -5,10 +5,10 @@ from rest_framework.response import Response
 
 from .serializers import EntrySheetSerializer
 
-from .wordcloud import WordCloudGenerator
-from .similarity_score import SimilarityScore
-from .classification import Classifier
-from .utils import counter
+from api.entrysheet.wordcloud import WordCloudGenerator
+from api.entrysheet.similarity_score import SimilarityScore
+from api.entrysheet.classification import Classifier
+from api.entrysheet.utils import counter
 
 import logging
 logging.disable(logging.WARNING)

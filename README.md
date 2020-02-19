@@ -18,8 +18,6 @@ Also, download Japanese wikipedia corpus to utilize pre-trained word vector from
 <br>
 Then save the binary file in `./static/entrysheet`.
 
-Now ready to run server.
-
 ## Setup
 
 Create a virtual environment to install dependencies and activate it inside the project folder

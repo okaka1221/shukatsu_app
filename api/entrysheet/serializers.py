@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import EntrySheet
+from api.entrysheet.models import EntrySheet
 
 class EntrySheetSerializer(serializers.ModelSerializer):
     class Meta:

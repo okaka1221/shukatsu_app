@@ -1,5 +1,5 @@
 from django.contrib.staticfiles.storage import staticfiles_storage
-from .models import EntrySheet
+from api.entrysheet.models import EntrySheet
 
 import logging
 logging.disable(logging.WARNING)

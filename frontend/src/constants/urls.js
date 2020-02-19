@@ -1,1 +1,1 @@
-export const TEXT_ANALYSIS = 'http://127.0.0.1:8000/api/text-analysis/';
+export const ENTRY_SHEET = 'http://127.0.0.1:8000/api/entrysheet/';

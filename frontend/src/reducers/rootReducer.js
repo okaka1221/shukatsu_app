@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import textAnalysis from './textAnalysis';
+import entrySheet from './entrySheet';
 
 export default combineReducers({
-    textAnalysis,
+    entrySheet,
 })

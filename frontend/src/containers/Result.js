@@ -3,11 +3,11 @@ import Result from '../components/Result';
 
 const mapStateToProps = state => {
   return {
-    isPending: state.textAnalysis.isPending,
-    encodedWordcloud: state.textAnalysis.encodedWordcloud,
-    keywordSimScore: state.textAnalysis.keywordSimScore,
-    jikoPRScore: state.textAnalysis.jikoPRScore,
-    error: state.textAnalysis.error,
+    isPending: state.entrySheet.isPending,
+    encodedWordcloud: state.entrySheet.encodedWordcloud,
+    keywordSimScore: state.entrySheet.keywordSimScore,
+    jikoPRScore: state.entrySheet.jikoPRScore,
+    error: state.entrySheet.error,
   }
 }
 

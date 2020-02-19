@@ -20,7 +20,7 @@ graph = tf.get_default_graph()
 
 wordcloud = WordCloudGenerator()
 sim_score = SimilarityScore()
-classifier = Classifier()
+# classifier = Classifier()
 
 class TextAnalysisResult(APIView):
     def post(self, request, format=None):
@@ -46,14 +46,14 @@ class TextAnalysisResult(APIView):
 
         keyword_sim_score = sim_score.calc_score(word_counts, keywords)
         
-        global graph
-        with graph.as_default():
-            jikoPR_score = classifier.predict(data['text']) * 100
+        # global graph
+        # with graph.as_default():
+        #     jikoPR_score = classifier.predict(data['text']) * 100
 
         res = {
             'encoded_wordcloud': encoded_wordcloud,
             'keyword_sim_score': keyword_sim_score,
-            'jikoPR_score':  jikoPR_score,
+            'jikoPR_score':  None,
         }
 
         return Response(res)

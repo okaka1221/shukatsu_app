@@ -1,21 +1,21 @@
 import { connect } from 'react-redux';
 import InputField from '../components/InputField';
-import { getTextAnalysis } from '../api/textAnalysis';
+import { postEntrySheet } from '../api/entrySheet';
 
 const mapStateToProps = state => {
   return {
-    isPending: state.textAnalysis.isPending,
-    encodedWordcloud: state.textAnalysis.encodedWordcloud,
-    keywordSimScore: state.textAnalysis.keywordSimScore,
-    jikoPRScore: state.textAnalysis.jikoPRScore,
-    error: state.textAnalysis.error,
+    isPending: state.entrySheet.isPending,
+    encodedWordcloud: state.entrySheet.encodedWordcloud,
+    keywordSimScore: state.entrySheet.keywordSimScore,
+    jikoPRScore: state.entrySheet.jikoPRScore,
+    error: state.entrySheet.error,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    getTextAnalysis(keyword, text, type) {
-      dispatch(getTextAnalysis(keyword, text, type));
+    postEntrySheet(keyword, text, type) {
+      dispatch(postEntrySheet(keyword, text, type));
     }
   };
 }

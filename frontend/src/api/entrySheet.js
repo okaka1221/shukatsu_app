@@ -1,7 +1,7 @@
 import * as URL from '../constants/urls';
-import * as TEXT_ANALYSIS_ACTIONS from '../actions/textAnalysis';
+import * as ENTRY_SHEET_ACTIONS from '../actions/entrySheet';
 
-export function getTextAnalysis(keywords, text, label) {
+export function postEntrySheet(keywords, text, label) {
   const requestOptions = {
     method: 'POST',
     headers: {
@@ -16,18 +16,18 @@ export function getTextAnalysis(keywords, text, label) {
   }
 
   return dispatch => {
-    dispatch(TEXT_ANALYSIS_ACTIONS.getTextAnalysisPending());
+    dispatch(ENTRY_SHEET_ACTIONS.postEntrySheetPending());
     
-    fetch(URL.TEXT_ANALYSIS, requestOptions)
+    fetch(URL.ENTRY_SHEET, requestOptions)
       .then (res => {
         if (!res.ok) throw res
         return res.json()
       })
       .then(data => {
-        dispatch(TEXT_ANALYSIS_ACTIONS.getTextAnalysisSuccess(data))
+        dispatch(ENTRY_SHEET_ACTIONS.postEntrySheetSuccess(data))
       })
       .catch(error => {
-        dispatch(TEXT_ANALYSIS_ACTIONS.getTextAnalysisFailure(error))
+        dispatch(ENTRY_SHEET_ACTIONS.postEntrySheetFailure(error))
         Error(error.statusText)
       })
   }

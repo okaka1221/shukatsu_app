@@ -8,16 +8,16 @@ const initialState = {
   error: null,
 }
 
-export default function textAnalysis(state=initialState, action) {
+export default function entrySheet(state=initialState, action) {
   switch (action.type) {
-    case ActionTypes.GET_TEXT_ANALYSIS_PENDING:
+    case ActionTypes.POST_ENTRY_SHEET_PENDING:
       return {
         ...initialState,
         isPending: true,
         error: null,
       }
 
-    case ActionTypes.GET_TEXT_ANALYSIS_SUCCESS:
+    case ActionTypes.POST_ENTRY_SHEET_SUCCESS:
       return {
         ...state,
         isPending: false,
@@ -27,7 +27,7 @@ export default function textAnalysis(state=initialState, action) {
         error: null,
       }
 
-    case ActionTypes.GET_TEXT_ANALYSIS_FAILURE:
+    case ActionTypes.POST_ENTRY_SHEET_FAILURE:
       return {
         ...state,
         isPending: false,

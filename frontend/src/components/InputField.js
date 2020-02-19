@@ -47,7 +47,7 @@ class InputField extends React.Component {
     }
     
     if (text !== "" && label !== "") {
-      this.props.getTextAnalysis(keywords, text, label);
+      this.props.postEntrySheet(keywords, text, label);
     }
   }
 

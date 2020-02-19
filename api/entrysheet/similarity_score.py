@@ -9,8 +9,8 @@ class SimilarityScore():
     Calculate similarity score between text and keywords
     """
     def __init__(self):
-        self.model_path = staticfiles_storage.path('entrysheet/wikipedia_entity_model')
-        self.model = KeyedVectors.load(self.model_path)
+        self.model_path = staticfiles_storage.path('entrysheet/entity_vector.model.bin')
+        self.model = KeyedVectors.load_word2vec_format(self.model_path, binary=True)
 
     def calc_score(self, word_counts, keywords):
         word_counts = sorted(word_counts.items(), key=lambda x:x[1], reverse=True)

@@ -12,11 +12,11 @@ $ mkdir -p static/entrysheet/bert
 
 Then, download the pre-trained model from [Pre-trained Japanese BERT Model](https://yoheikikuta.github.io/bert-japanese/). 
 <br>
-After downloading the files, save them to `./static/entrysheet/bert`.
+After downloading the files, save them in `./static/entrysheet/bert`.
 
-Also, download Japanese wikipedia corpus to utilize pre-trained word vector from [Japanese Wikipedia Entity Model]().
+Also, download Japanese wikipedia corpus to utilize pre-trained word vector from [Japanese Wikipedia Entity Model](http://www.cl.ecei.tohoku.ac.jp/~m-suzuki/jawiki_vector/).
 <br>
-Then save them to `./static/entrysheet`.
+Then save the binary file in `./static/entrysheet`.
 
 Now ready to run server.
 

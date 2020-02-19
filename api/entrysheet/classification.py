@@ -1,5 +1,5 @@
 from django.contrib.staticfiles.storage import staticfiles_storage
-from .models import EntrySheetModel
+from .models import EntrySheet
 
 import logging
 logging.disable(logging.WARNING)
@@ -46,7 +46,7 @@ class Classifier():
         return predict_prob
 
     def train(self, test_size, epochs, batch_size, patience):
-        df = pd.DataFrame(list(ESModel.objects.all().values()))
+        df = pd.DataFrame(list(EntrySheet.objects.all().values()))
         df['label'] = df['label'] * 1
 
         X = []

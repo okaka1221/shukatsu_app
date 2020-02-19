@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import EntrySheetModel
+from .models import EntrySheet
 
-admin.site.register(EntrySheetModel)
+admin.site.register(EntrySheet)

@@ -35,7 +35,7 @@ class TextAnalysisResult(APIView):
             return Response(status=status.HTTP_400_BAD_REQUEST)
         
         # check validation and save data in db
-        serializer = EntrySheetSerializer(data=data)
+        serializer = EntrySheetSerializer(data={'text': data['text'], 'label': data['label']})
         if serializer.is_valid():
             serializer.save()
 

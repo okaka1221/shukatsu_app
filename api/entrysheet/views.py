@@ -20,9 +20,9 @@ graph = tf.get_default_graph()
 
 wordcloud = WordCloudGenerator()
 sim_score = SimilarityScore()
-# classifier = Classifier()
+classifier = Classifier()
 
-class TextAnalysisResult(APIView):
+class EntrySheetResult(APIView):
     def post(self, request, format=None):
         data = JSONParser().parse(request)
 
@@ -36,7 +36,7 @@ class TextAnalysisResult(APIView):
         
         # check validation and save data in db
         serializer = EntrySheetSerializer(data={'text': data['text'], 'label': data['label']})
-        if serializer.is_valid():
+        if serializer.is_valid() and len(text) > 150:
             serializer.save()
 
         keywords, keyword_counts = counter(keywords)
@@ -44,16 +44,18 @@ class TextAnalysisResult(APIView):
         wordcloud_obj = wordcloud.generate(words)
         encoded_wordcloud = wordcloud.to_encoded_image(wordcloud_obj)
 
-        keyword_sim_score = sim_score.calc_score(word_counts, keywords)
+        keyword_sim_score = None
+        if len(keywords) > 0:
+            keyword_sim_score = sim_score.calc_score(word_counts, keywords)
         
-        # global graph
-        # with graph.as_default():
-        #     jikoPR_score = classifier.predict(data['text']) * 100
+        global graph
+        with graph.as_default():
+            jikoPR_score = classifier.predict(data['text']) * 100
 
         res = {
             'encoded_wordcloud': encoded_wordcloud,
             'keyword_sim_score': keyword_sim_score,
-            'jikoPR_score':  None,
+            'jikoPR_score':  jikoPR_score,
         }
 
         return Response(res)

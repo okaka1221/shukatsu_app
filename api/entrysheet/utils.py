@@ -4,17 +4,6 @@ from janome.tokenizer import Tokenizer
 from collections import defaultdict
 import re
 
-def custom_exception_handler(exc, context):
-    # Call REST framework's default exception handler first,
-    # to get the standard error response.
-    response = exception_handler(exc, context)
-
-    # Now add the HTTP status code to the response.
-    if response is not None:
-        response.data['status_code'] = response.status_code
-    
-    return response
-
 # extract nouns from text given
 def counter(text):
     tokenizer = Tokenizer()

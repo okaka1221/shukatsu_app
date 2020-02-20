@@ -27,10 +27,6 @@ class Classifier():
     """
     def __init__(self):
         self.maxlen = 512
-        self.bert_dim = 768
-        self.bert_config_path = staticfiles_storage.path('entrysheet/bert/bert_config.json')
-        self.bert_checkpoint_path = staticfiles_storage.path('entrysheet/bert/model.ckpt-1400000')
-        self.bert = load_trained_model_from_checkpoint(self.bert_config_path, self.bert_checkpoint_path, seq_len=self.maxlen, training=True, trainable=False)
         
         self.sp_path = staticfiles_storage.path('entrysheet/bert/wiki-ja.model')
         self.sp = spm.SentencePieceProcessor()
@@ -48,7 +44,7 @@ class Classifier():
     def train(self, test_size, epochs, batch_size, patience):
         df = pd.DataFrame(list(EntrySheet.objects.all().values()))
         df['label'] = df['label'] * 1
-
+        
         X = []
         for text in df['text']:
             X.append(self._get_tokens(text))
@@ -61,8 +57,12 @@ class Classifier():
         X_train = [X_train, np.zeros_like(X_train)]
         X_test = [X_test, np.zeros_like(X_test)]
 
-        inputs = self.bert.inputs[:2]
-        bert_output = self.bert.get_layer('Encoder-12-FeedForward-Norm').output
+        bert_config_path = staticfiles_storage.path('entrysheet/bert/bert_config.json')
+        bert_checkpoint_path = staticfiles_storage.path('entrysheet/bert/model.ckpt-1400000')
+        bert = load_trained_model_from_checkpoint(bert_config_path, bert_checkpoint_path, seq_len=self.maxlen, training=True, trainable=False)
+
+        inputs = bert.inputs[:2]
+        bert_output = bert.get_layer('Encoder-12-FeedForward-Norm').output
         x1 = Bidirectional(LSTM(256))(bert_output)
         outputs = Dropout(0.2)(x1)
         outputs = Dense(units=64)(outputs)

@@ -27,6 +27,25 @@ class EntrySheetAPITest(APITestCase, URLPatternsTestCase):
         self.assertEqual(type(res_data['keyword_sim_score']), np.float64)
         self.assertEqual(type(res_data['jikoPR_score']), np.float64)
         self.assertEqual(EntrySheet.objects.all().count(), prev_count+1)
+    
+    def test_post_valid_entrysheet_with_short_text(self):
+        prev_count = EntrySheet.objects.all().count()
+
+        url = reverse('entrysheet')
+        data = {
+            'keywords': 'キー１　キー２　キー３',
+            'text': '私の強みは、行動力にあると考えています。大学2年生の8月から大学3年生の12月まで、不動産の会社でインターン生として投資用の中古物件の販売を経験しました。',
+            'label': True
+        }
+
+        response = self.client.post(url, data, format='json')
+        res_data = response.data
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(type(res_data['encoded_wordcloud']), bytes)
+        self.assertEqual(type(res_data['keyword_sim_score']), np.float64)
+        self.assertEqual(type(res_data['jikoPR_score']), np.float64)
+        self.assertEqual(EntrySheet.objects.all().count(), prev_count)
 
     def test_post_valid_entrysheet_without_key(self):
         prev_count = EntrySheet.objects.all().count()

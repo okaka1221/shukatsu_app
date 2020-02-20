@@ -99,5 +99,3 @@ class Classifier():
                 indices[t] = self.sp.piece_to_id('<unk>')
 
         return indices
-
-    

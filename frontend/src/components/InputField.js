@@ -68,7 +68,7 @@ class InputField extends React.Component {
     return (
       <div>
         <form name="form" onSubmit={this.handleSubmit}>
-          <Typography variant='h5' style={{ marginTop: 30 }}>自己PRであなたを表すキーワード（日本語のみで、複数の場合は間にスペースを入れて下さい。）</Typography>
+          <Typography variant='h5' style={{ marginTop: 30 }}>自己PRで強調したいキーワード（日本語のみで、複数の場合は間にスペースを入れて下さい。）</Typography>
           <TextField
             margin="normal"
             name="keywords"

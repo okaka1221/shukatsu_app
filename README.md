@@ -36,6 +36,7 @@ Then install the dependencies
 After downloading all dependencies, run the server 
 
 ```
+(venv) $ python manage.py migrate
 (venv) $ python manage.py runserver
 ```
 

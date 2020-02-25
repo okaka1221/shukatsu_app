@@ -27,10 +27,10 @@ class WordCloud extends React.Component {
           this.props.encodedWordcloud !== null ?
             <div>
               <Grid container>
-                <Grid item xs={4}>
+                <Grid item xs={12} md={5} lg={4}>
                   <Typography variant='h5'>ワードクラウド</Typography>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} md={5} lg={4}>
                   <Button 
                     size='large'
                     onClick={this.handleOpen}
@@ -38,13 +38,13 @@ class WordCloud extends React.Component {
                     ワードクラウドとは？
                   </Button>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={0} md={2} lg={4}>
                 </Grid>
               </Grid>
               <img 
                 src={"data:image/png;base64," + this.props.encodedWordcloud}
                 alt="wordcloud"
-                width="500" height="500"
+                width="450" height="450"
                 style={{ marginTop: 20 }}
               />
             </div>

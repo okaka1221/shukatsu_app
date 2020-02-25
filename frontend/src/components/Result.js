@@ -17,14 +17,14 @@ class Result extends React.Component {
           </Grid>
           : 
           <Grid container spacing={3} >
-            <Grid item xs={6}>
+            <Grid item xs={12} md={5} lg={6}>
               <JikoPRScore jikoPRScore={jikoPRScore}/>
               <SimScore
                 score={keywordSimScore}
                 encodedWordcloud={encodedWordcloud}
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={7} lg={6}>
               <WordCloud encodedWordcloud={encodedWordcloud} />
             </Grid>
           </Grid>

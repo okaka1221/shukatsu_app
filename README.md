@@ -4,10 +4,10 @@
 
 First, download pre-trained model for Japanese BERT.
 
-To save weights file of BERT, make directory
+To save weights file for BERT, make directory
 
 ```
-$ mkdir -p static/entrysheet/bert
+$ mkdir static/entrysheet/bert
 ```
 
 Then, download the pre-trained model from [Pre-trained Japanese BERT Model](https://yoheikikuta.github.io/bert-japanese/). 
@@ -41,3 +41,26 @@ After downloading all dependencies, run the server
 ```
 
 Now access to `http://127.0.0.1:800`
+
+## Development
+
+### Web API
+[Django REST framework](https://www.django-rest-framework.org) is used to create Web API.
+
+APIs are located in `./api`. So far, there is only one API for analysing 自己PR.
+
+If you want to test API, run the following code
+```
+(venv) $ python manage.py test api
+```
+
+### Frontend
+
+React.js and Redux are used for frontend development. The codes for frontend is located at `./frontend/src`
+
+To build JavaScript codes, run 
+```
+cd frontend
+npm run build
+```
+

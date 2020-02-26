@@ -8,7 +8,7 @@ class Header extends React.Component {
         <AppBar>
           <Toolbar>
             <Typography variant="h6">
-              自己PR分析　〜 あなたの自己PRをAIが分析します 〜
+              エントリーシート自己PR分析　〜 あなたの自己PRをAIが分析します 〜
             </Typography>
           </Toolbar>
         </AppBar>

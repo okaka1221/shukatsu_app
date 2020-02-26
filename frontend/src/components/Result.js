@@ -10,7 +10,7 @@ class Result extends React.Component {
     
     return (
       <div>
-        { 
+        {
           isPending ? 
           <Grid container spacing={3} justify='center' style={{display: 'flex'}}>
             <CircularProgress size={100}/>
